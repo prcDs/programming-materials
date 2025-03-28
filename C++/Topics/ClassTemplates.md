@@ -78,4 +78,4 @@ int main() {
 - и других контейнерах
 
 #### Читать также
-- [Шаблоны функций](./C++/Topics/FunctionTemplates.md)
+- [Шаблоны функций](./FunctionTemplates.md)

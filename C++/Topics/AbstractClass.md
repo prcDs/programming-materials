@@ -180,7 +180,9 @@ int main() {
 
     return 0;
 }
-## Практическое задание
+```
+## Практический пример
+```cpp
 class Base {
 public:
     virtual ~Base() { cout << "Base destructor\n"; }

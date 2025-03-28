@@ -76,3 +76,6 @@ int main() {
 - `list<T>`
 - `map<K, V>`
 - и других контейнерах
+
+#### Читать также
+- [Шаблоны функций](./C++/Topics/FunctionTemplates.md)

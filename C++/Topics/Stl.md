@@ -4,11 +4,11 @@
 - **Контейнеры**
     STL предоставляет множество контейнеров для хранения данных. Они делятся на 3 категории:
 
-    -- **Последовательные (линейные)**
+    - **Последовательные (линейные)**
         Хранят элементы в линейном порядке.
-    -- **Ассоциативные (упорядоченные/неупорядоченные)**
+    - **Ассоциативные (упорядоченные/неупорядоченные)**
         Хранят элементы в отсортированном/хешированном виде.
-    -- **Адаптеры (надстройки над другими контейнерами)**
+    - **Адаптеры (надстройки над другими контейнерами)**
         Надстройки над другими контейнерами.
 - **Алгоритмы**
     STL предоставляет широкий набор методов для работы со своими контейнерами
@@ -27,6 +27,31 @@
     std::vector<int> vec = {1, 2, 3};
     for (auto it = vec.begin(); it != vec.end(); ++it) {
     std::cout << *it << " "; // 1 2 3
+    }
+
+    #include <iostream>
+    #include <set>
+
+    int main() {
+    std::set<int> mySet = {1, 2, 3, 4, 5};  // Упрощённая инициализация
+    for (auto it = mySet.cbegin(); it != mySet.cend(); ++it) {
+        std::cout << *it << std::endl;  // Исправлено: убрана лишняя кавычка
+    }
+    return 0;
+    }
+
+    #include <iostream>
+    #include <map>
+    #include <string>
+
+    int main() {
+    std::map<int, std::string> myMap = {
+        {1, "one"}, {2, "two"}, {3, "three"}  // Исправлено: добавлены значения
+    };
+    for (auto it = myMap.cbegin(); it != myMap.cend(); ++it) {
+        std::cout << it->first << ": " << it->second << std::endl;
+    }
+    return 0;
     }
     ```
 
@@ -167,3 +192,75 @@ std::priority_queue<int> pq;
 pq.push(3); // Автоматическая сортировка
 pq.pop();   // Удаление наибольшего
 ```
+
+## Пример
+```cpp
+#include <array>
+#include <vector>
+#include <set>
+#include <string>
+#include <deque>
+#include <list>
+#include <map>
+
+// Статический массив
+std::array<int, 5> arr = {1, 2, 3, 4, 5};  // Исправлено: убраны кавычки у размера
+arr.at(1);   // Доступ с проверкой границ
+arr.size();  // Размер
+
+// Динамический массив
+std::vector<int> vec;
+vec.push_back(10);
+
+// Уникальные отсортированные элементы
+std::set<int> unique_set = {3, 1, 2};  // Станет {1, 2, 3}
+std::multiset<int> multi_set;  // С дубликатами
+
+// Строки
+std::string text = "Hello";
+
+// Двусторонняя очередь
+std::deque<int> dq = {1, 2, 3};
+dq.push_front(0);
+
+// Связный список
+std::list<int> lst;
+
+// Словари
+std::map<std::string, int> my_map = {{"a", 1}};
+std::multimap<std::string, int> multi_map;
+```
+#include <iostream>
+#include <vector>
+#include <map>
+using namespace std;
+
+int main() {
+    // Vector example
+    vector<int> arr;
+    for (int i = 0; i < 7; i++) {
+        arr.push_back(i + 1);
+    }
+
+    // Итерация с const_iterator
+    vector<int>::const_iterator it = arr.cbegin();
+    while (it != arr.cend()) {
+        cout << *it << '\t';  // Исправлено: вывод значения
+        it++;
+    }
+    cout << endl;
+
+    // Map example
+    map<int, string> mm;
+    mm[12] = "que";
+    mm.insert(make_pair(3, "qrff"));
+
+    // Итерация по map
+    map<int, string>::iterator it2 = mm.begin();
+    while (it2 != mm.end()) {
+        cout << it2->first << ": " << it2->second << '\t';  // Исправлено форматирование
+        ++it2;  // Исправлено: инкремент правильного итератора
+    }
+
+    return 0;
+}

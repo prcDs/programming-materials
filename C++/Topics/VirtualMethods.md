@@ -60,7 +60,7 @@ public:
 ## Суть
 Абстракция позволяет скрыть детали реализации, показывая только необходимый функционал.
 
-## Пример
+## Пример 1
 ```cpp
 class Animal {
 public:
@@ -74,6 +74,35 @@ public:
     }
 };
 ```
+## Пример 2
+```cpp
+#include <iostream>
+using namespace std;
+
+class Animal {
+public:
+    virtual void speak() { cout << "Animal speak\n"; }
+};
+
+class Dog : public Animal {
+public:
+    void speak() override final { cout << "Woof\n"; } // final запрещает переопределение
+};
+
+// Ошибка: нельзя наследовать от final-метода
+// class Puppy : public Dog {
+// public:
+//     void speak() override { cout << "Woof Woof\n"; }
+// };
+
+int main() {
+    Animal* animal = new Dog();
+    animal->speak();  // Выведет "Woof"
+    delete animal;
+    return 0;
+}
+```
+
 ### Применение
 1.Для создания интерфейсов.
 2.Чтобы уменьшить сложность кода.

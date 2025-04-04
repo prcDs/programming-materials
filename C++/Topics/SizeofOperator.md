@@ -12,3 +12,10 @@ int main() {
     cout << "Размер char: " << sizeof(char) << " байт" << endl;
     return 0;
 }
+```
+## Вывод:
+```
+Size int: 4 bytes
+Size double: 8 bytes
+Size char: 1 bytes
+```
